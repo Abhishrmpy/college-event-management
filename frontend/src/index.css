@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 40% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 40% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.35);
+  }
+}
+
+@layer utilities {
+  .particle-canvas {
+    touch-action: pan-y;
+  }
+
+  .animate-name-shimmer {
+    background-size: 220% auto;
+    animation: name-shimmer 7s linear infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee 26s linear infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 18s linear infinite;
+  }
+
+  .animate-scan {
+    animation: scan 5s ease-in-out infinite;
+  }
+
+  .hanging-swing {
+    transform-origin: 50% 0%;
+    animation: hanging-swing 7.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: transform;
+  }
+
+  .hanging-float {
+    animation: hanging-float 5.5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .hanging-thread {
+    filter: drop-shadow(0 0 5px rgba(167, 139, 250, 0.5))
+      drop-shadow(0 0 12px rgba(56, 189, 248, 0.25));
+    transition: filter 500ms ease;
+  }
+
+  .hanging-glow {
+    transform-origin: 50% 0%;
+    filter: drop-shadow(0 24px 38px rgba(2, 6, 23, 0.78))
+      drop-shadow(0 0 14px rgba(139, 92, 246, 0.32))
+      drop-shadow(0 0 30px rgba(56, 189, 248, 0.16));
+    transition:
+      transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 500ms ease;
+  }
+
+  .hanging-anchor {
+    background: radial-gradient(
+      circle at 35% 35%,
+      #f5f3ff 0%,
+      #a78bfa 45%,
+      #38bdf8 100%
+    );
+    box-shadow:
+      0 0 8px 2px rgba(167, 139, 250, 0.65),
+      0 0 22px 6px rgba(56, 189, 248, 0.3);
+  }
+
+  .web-motif {
+    transform-origin: center;
+    animation: web-spin 60s linear infinite;
+  }
+
+  .web-breathe {
+    animation: web-breathe 6.5s ease-in-out infinite;
+  }
+}
+
+@media (hover: hover) {
+  .hanging-group:hover .hanging-glow {
+    transform: scale(1.045);
+    filter: drop-shadow(0 28px 46px rgba(2, 6, 23, 0.82))
+      drop-shadow(0 0 20px rgba(139, 92, 246, 0.55))
+      drop-shadow(0 0 42px rgba(56, 189, 248, 0.32));
+  }
+
+  .hanging-group:hover .hanging-thread {
+    filter: drop-shadow(0 0 8px rgba(196, 181, 253, 0.75))
+      drop-shadow(0 0 18px rgba(56, 189, 248, 0.45));
+  }
+}
+
+@keyframes name-shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 220% center;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, -8px, 0);
+  }
+  50% {
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(520%);
+    opacity: 0;
+  }
+}
+
+@keyframes hanging-swing {
+  0%,
+  100% {
+    transform: rotate(-2.6deg);
+  }
+  50% {
+    transform: rotate(2.6deg);
+  }
+}
+
+@keyframes hanging-float {
+  0%,
+  100% {
+    transform: translate3d(0, -3px, 0) rotate(-0.4deg);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0) rotate(0.4deg);
+  }
+}
+
+@keyframes web-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes web-breathe {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.42;
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-name-shimmer,
+  .animate-marquee,
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-scan,
+  .hanging-swing,
+  .hanging-float,
+  .web-motif,
+  .web-breathe {
+    animation: none !important;
+  }
+
+  .hanging-glow,
+  .hanging-thread {
+    transition: none !important;
+  }
+
+  .hanging-group:hover .hanging-glow {
+    transform: none;
+  }
+}
