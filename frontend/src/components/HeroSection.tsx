@@ -77,21 +77,13 @@ export const HeroSection = () => {
             Registrations open for the 2026 season
           </span>
 
-          <h1 className="mt-6 max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-            Campus life, one{" "}
-            <span className="bg-gradient-to-r from-sky-300 via-indigo-300 to-fuchsia-300 bg-clip-text text-transparent">
-              unforgettable event
-            </span>{" "}
-            at a time.
-          </h1>
-
-          <p className="mt-5 max-w-xl text-balance text-base text-white/60 sm:text-lg">
+          <p className="mt-6 max-w-xl text-balance text-base text-white/60 sm:text-lg">
             Discover workshops, fests, hackathons and cultural nights. Build
             your calendar, grab your pass, and show up for the moments that
             matter.
           </p>
 
-          <div className="pointer-events-auto mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+          <div className="pointer-events-auto mt-6 flex w-full flex-col items-center justify-center gap-3 sm:mt-9 sm:w-auto sm:flex-row">
             <a
               href="#events"
               className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-100 sm:w-auto"
@@ -108,18 +100,23 @@ export const HeroSection = () => {
             </a>
           </div>
 
-          <dl className="mt-12 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+          <dl className="mt-8 grid w-full max-w-3xl grid-cols-3 gap-2 sm:mt-12 sm:gap-3">
             {stats.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
-                className="flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm"
+                className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-2 py-3 text-center backdrop-blur-sm sm:flex-row sm:gap-3 sm:px-5 sm:py-4 sm:text-left"
               >
-                <Icon className="h-5 w-5 text-sky-300" aria-hidden="true" />
-                <div className="text-left">
-                  <dt className="text-lg font-semibold leading-none">
+                <Icon
+                  className="h-4 w-4 text-sky-300 sm:h-5 sm:w-5"
+                  aria-hidden="true"
+                />
+                <div>
+                  <dt className="text-base font-semibold leading-none sm:text-lg">
                     {value}
                   </dt>
-                  <dd className="mt-1 text-xs text-white/50">{label}</dd>
+                  <dd className="mt-1 text-[10px] text-white/50 sm:text-xs">
+                    {label}
+                  </dd>
                 </div>
               </div>
             ))}
